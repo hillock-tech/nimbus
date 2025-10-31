@@ -1,0 +1,17 @@
+{
+  "name": "nimbus-example-basic-api",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Basic API example using Nimbus",
+  "scripts": {
+    "deploy": "npx nimbus deploy index.ts",
+    "destroy": "npx nimbus destroy --project my-app --region us-east-1"
+  },
+  "dependencies": {
+    "@hillock-tech/nimbus-js": "file:../.."
+  },
+  "devDependencies": {
+    "tsx": "^4.7.0",
+    "typescript": "^5.5.0"
+  }
+}

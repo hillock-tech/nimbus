@@ -1,0 +1,20 @@
+{
+  "name": "nimbus-custom-permissions-example",
+  "version": "1.0.0",
+  "description": "Nimbus custom IAM permissions example",
+  "main": "index.ts",
+  "scripts": {
+    "deploy": "npx nimbus deploy",
+    "destroy": "npx nimbus destroy --project custom-permissions-app --region us-east-1"
+  },
+  "dependencies": {
+    "@hillock-tech/nimbus-js": "file:../..",
+    "@aws-sdk/client-ses": "^3.600.0",
+    "@aws-sdk/client-sns": "^3.600.0",
+    "@aws-sdk/client-ssm": "^3.600.0"
+  },
+  "devDependencies": {
+    "tsx": "^4.7.0",
+    "typescript": "^5.5.0"
+  }
+}

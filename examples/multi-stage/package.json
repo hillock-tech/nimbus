@@ -1,0 +1,22 @@
+{
+  "name": "nimbus-multi-stage-example",
+  "version": "1.0.0",
+  "description": "Nimbus multi-stage deployment example",
+  "main": "index.ts",
+  "scripts": {
+    "deploy": "npx nimbus deploy",
+    "deploy:dev": "STAGE=dev npx nimbus deploy",
+    "deploy:staging": "STAGE=staging npx nimbus deploy",
+    "deploy:prod": "STAGE=prod npx nimbus deploy",
+    "destroy:dev": "npx nimbus destroy --project multi-stage-app --region us-east-1 --stage dev",
+    "destroy:staging": "npx nimbus destroy --project multi-stage-app --region us-east-1 --stage staging",
+    "destroy:prod": "npx nimbus destroy --project multi-stage-app --region us-east-1 --stage prod --force"
+  },
+  "dependencies": {
+    "@hillock-tech/nimbus-js": "file:../.."
+  },
+  "devDependencies": {
+    "tsx": "^4.7.0",
+    "typescript": "^5.5.0"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "auth-api-example",
+  "version": "1.0.0",
+  "description": "Nimbus example: API with JWT authorization",
+  "private": true,
+  "scripts": {
+    "deploy": "npx nimbus deploy",
+    "destroy": "npx nimbus destroy --project auth-api-app --region us-east-1"
+  },
+  "dependencies": {
+    "@hillock-tech/nimbus-js": "file:../..",
+    "jose": "^5.9.6"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.2",
+    "@types/node": "^22.10.2"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "nimbus-example-custom-domain",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Custom domain example using Nimbus with ACM certificate management",
+  "scripts": {
+    "deploy": "npx nimbus deploy",
+    "destroy": "npx nimbus destroy --project custom-domain-app --region us-east-1"
+  },
+  "dependencies": {
+    "@hillock-tech/nimbus-js": "file:../.."
+  },
+  "devDependencies": {
+    "tsx": "^4.7.0",
+    "typescript": "^5.5.0"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "nimbus-example-kv",
+  "version": "1.0.0",
+  "private": true,
+  "description": "DynamoDB KV store example using Nimbus",
+  "scripts": {
+    "deploy": "npx nimbus deploy index.ts",
+    "destroy": "npx nimbus destroy --project kv-app --region us-east-1"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.919.0",
+    "@aws-sdk/lib-dynamodb": "^3.919.0",
+    "nanoid": "^5.1.6",
+    "@hillock-tech/nimbus-js": "file:../.."
+  },
+  "devDependencies": {
+    "tsx": "^4.7.0",
+    "typescript": "^5.5.0"
+  }
+}

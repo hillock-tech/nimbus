@@ -1,0 +1,13 @@
+{
+  "name": "feature-flags-example",
+  "version": "1.0.0",
+  "description": "Example demonstrating feature flags and configuration management with runtime helpers",
+  "main": "index.ts",
+  "scripts": {
+    "deploy": "nimbus deploy",
+    "destroy": "nimbus destroy"
+  },
+  "dependencies": {
+    "@hillock-tech/nimbus-js": "file:../.."
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "lambda-init-example",
+  "version": "1.0.0",
+  "description": "Example demonstrating Lambda static initialization with Nimbus",
+  "main": "index.ts",
+  "scripts": {
+    "deploy": "nimbus deploy",
+    "destroy": "nimbus destroy"
+  },
+  "dependencies": {
+    "@hillock-tech/nimbus-js": "file:../..",
+    "axios": "^1.6.0",
+    "jsonwebtoken": "^9.0.0",
+    "bcrypt": "^5.1.0",
+    "redis": "^4.6.0"
+  }
+}

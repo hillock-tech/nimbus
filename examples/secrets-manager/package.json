@@ -1,0 +1,13 @@
+{
+  "name": "secrets-manager-example",
+  "version": "1.0.0",
+  "description": "Example demonstrating secure secret management with AWS Secrets Manager",
+  "main": "index.ts",
+  "scripts": {
+    "deploy": "nimbus deploy",
+    "destroy": "nimbus destroy"
+  },
+  "dependencies": {
+    "@hillock-tech/nimbus-js": "file:../.."
+  }
+}

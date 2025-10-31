@@ -1,0 +1,17 @@
+{
+  "name": "nimbus-xray-tracing-example",
+  "version": "1.0.0",
+  "description": "Nimbus X-Ray tracing example",
+  "main": "index.ts",
+  "scripts": {
+    "deploy": "npx nimbus deploy",
+    "destroy": "npx nimbus destroy --project xray-tracing-app --region us-east-1"
+  },
+  "dependencies": {
+    "@hillock-tech/nimbus-js": "file:../.."
+  },
+  "devDependencies": {
+    "tsx": "^4.7.0",
+    "typescript": "^5.5.0"
+  }
+}
