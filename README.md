@@ -8,10 +8,6 @@
 
 **Enterprise-ready serverless framework for AWS**
 
-[![Production Ready](https://img.shields.io/badge/Production%20Ready-85%25-green.svg)](https://github.com/hillock-tech/nimbus-js)
-[![Security](https://img.shields.io/badge/Security-WAF%20%7C%20Encryption%20%7C%20Secrets-blue.svg)](https://github.com/hillock-tech/nimbus-js)
-[![Reliability](https://img.shields.io/badge/Reliability-DLQ%20%7C%20Circuit%20Breakers-orange.svg)](https://github.com/hillock-tech/nimbus-js)
-
 ```typescript
 import Nimbus from '@hillock-tech/nimbus-js';
 
