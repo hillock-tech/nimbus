@@ -53,7 +53,6 @@ export default defineConfig({
             { text: 'Queue', link: '/api/queue' },
             { text: 'SQL', link: '/api/sql' },
             { text: 'Timer', link: '/api/timer' },
-            { text: 'WAF', link: '/api/waf' },
             { text: 'Runtime Helpers', link: '/api/runtime' },
             { text: 'Secrets Manager', link: '/api/secrets' },
             { text: 'Parameter Store', link: '/api/parameters' }
@@ -72,7 +71,6 @@ export default defineConfig({
             { text: 'Message Queues', link: '/examples/queue' },
             { text: 'SQL Database', link: '/examples/sql' },
             { text: 'Scheduled Tasks', link: '/examples/timer' },
-            { text: 'WAF Protection', link: '/examples/waf-protection' },
             { text: 'Feature Flags', link: '/examples/feature-flags' },
             { text: 'Secrets Manager', link: '/examples/secrets-manager' },
             { text: 'Custom Permissions', link: '/examples/custom-permissions' },

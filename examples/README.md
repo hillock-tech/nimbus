@@ -22,7 +22,6 @@ API with JWT authentication using Lambda authorizers.
 
 ### Production Features
 - **[Auth API](./auth-api/)** - JWT authentication with Lambda authorizers
-- **[WAF Protection](./waf-protection/)** - Web Application Firewall security
 - **[Feature Flags](./feature-flags/)** - Runtime feature toggles and configuration
 - **[Secrets Manager](./secrets-manager/)** - Secure secret management
 - **[Custom Domain](./custom-domain/)** - Custom domain with ACM certificates

@@ -31,7 +31,6 @@ import {
 } from '@aws-sdk/client-acm';
 import { NimbusFunction } from './function';
 import { Role } from './role';
-import { WAF } from './waf';
 import { APIOptions, RouteConfig, AuthorizerConfig, HttpMethod, LambdaHandler, PolicyStatement } from './types-v2';
 import * as readline from 'readline';
 
@@ -57,7 +56,6 @@ export class API {
   private regionalDomainName?: string;
   private certificateArn?: string;
   private tracing: boolean;
-  private waf?: WAF;
 
   constructor(
     options: APIOptions,
@@ -73,19 +71,6 @@ export class API {
     this.routes = options.routes || [];
     this.authorizers = options.authorizers || [];
     this.tracing = options.tracing || false;
-    
-    // Initialize WAF if enabled
-    if (options.waf?.enabled) {
-      this.waf = new WAF({
-        name: `${this.name}-waf`,
-        description: `WAF for ${this.name} API`,
-        rateLimiting: options.waf.rateLimiting,
-        ipBlocking: options.waf.ipBlocking,
-        geoBlocking: options.waf.geoBlocking,
-        sqlInjectionProtection: options.waf.sqlInjectionProtection ?? true,
-        xssProtection: options.waf.xssProtection ?? true,
-      }, region, accountId);
-    }
     
     this.apiGatewayClient = new APIGatewayClient({ region });
     this.acmClient = new ACMClient({ region: 'us-east-1' }); // ACM for API Gateway must be in us-east-1
@@ -252,24 +237,6 @@ export class API {
       this.url = `https://${this.apiId}.execute-api.${this.region}.amazonaws.com/${this.stage}`;
     }
 
-    // Provision and associate WAF if enabled
-    if (this.waf) {
-      await this.provisionWAF();
-    }
-  }
-
-  /**
-   * Provision and associate WAF with API Gateway
-   */
-  private async provisionWAF(): Promise<void> {
-    if (!this.waf || !this.apiId) return;
-
-    console.log(`  Provisioning WAF for API: ${this.name}`);
-    await this.waf.provision();
-
-    // Associate WAF with API Gateway stage
-    const apiArn = `arn:aws:apigateway:${this.region}::/restapis/${this.apiId}/stages/${this.stage}`;
-    await this.waf.associateWithAPI(apiArn);
   }
 
   /**

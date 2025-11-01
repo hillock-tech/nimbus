@@ -45,24 +45,17 @@ Implement multiple layers of security controls.
 
 ```typescript
 const api = nimbus.api({
-  name: 'secure-api',
-  // Layer 1: WAF protection
-  waf: {
-    enabled: true,
-    rateLimiting: { enabled: true, limit: 1000 },
-    sqlInjectionProtection: true,
-    xssProtection: true
-  }
+  name: 'secure-api'
 });
 
-// Layer 2: Authentication
+// Layer 1: Authentication
 api.authorizer({
   name: 'jwt-auth',
   type: 'TOKEN',
   handler: './auth/authorizer.js'
 });
 
-// Layer 3: Input validation
+// Layer 2: Input validation
 api.route('POST', '/users', async (event) => {
   // Validate input
   const { error, value } = validateUserInput(event.body);
@@ -314,54 +307,6 @@ api.route('POST', '/comments', async (event) => {
 });
 ```
 
-## WAF Protection
-
-### Basic WAF Configuration
-```typescript
-const api = nimbus.api({
-  name: 'protected-api',
-  waf: {
-    enabled: true,
-    rateLimiting: {
-      enabled: true,
-      limit: 1000 // requests per 5 minutes per IP
-    },
-    sqlInjectionProtection: true,
-    xssProtection: true
-  }
-});
-```
-
-### Advanced WAF Configuration
-```typescript
-const api = nimbus.api({
-  name: 'enterprise-api',
-  waf: {
-    enabled: true,
-    rateLimiting: {
-      enabled: true,
-      limit: 2000
-    },
-    ipBlocking: {
-      enabled: true,
-      blockedIPs: [
-        '192.168.1.100/32', // Specific malicious IP
-        '10.0.0.0/8'        // Private network range
-      ],
-      allowedIPs: [
-        '203.0.113.0/24'    // Office network
-      ]
-    },
-    geoBlocking: {
-      enabled: true,
-      blockedCountries: ['CN', 'RU', 'KP']
-    },
-    sqlInjectionProtection: true,
-    xssProtection: true
-  }
-});
-```
-
 ## Monitoring and Logging
 
 ### Security Monitoring
@@ -490,7 +435,6 @@ const auditStorage = nimbus.Storage({
 ### Deployment Phase
 - [ ] Secrets stored in AWS Secrets Manager
 - [ ] Parameters encrypted with SecureString type
-- [ ] WAF enabled for public APIs
 - [ ] CloudTrail logging enabled
 - [ ] Monitoring and alerting configured
 - [ ] Backup and recovery procedures tested
@@ -573,7 +517,5 @@ api.route('GET', '/users/:userId', async (event) => {
 
 ## Related
 
-- [WAF Protection](../api/waf.md) - Web Application Firewall
 - [Secrets Manager](../api/secrets.md) - Secure secret management
 - [Parameter Store](../api/parameters.md) - Configuration management
-- [Examples: WAF Protection](../examples/waf-protection.md) - WAF example

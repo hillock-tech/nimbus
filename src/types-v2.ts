@@ -91,25 +91,6 @@ export interface APIOptions {
   authorizers?: AuthorizerConfig[];
   /** Enable X-Ray tracing */
   tracing?: boolean;
-  /** WAF configuration */
-  waf?: {
-    enabled: boolean;
-    rateLimiting?: {
-      enabled: boolean;
-      limit: number;
-    };
-    ipBlocking?: {
-      enabled: boolean;
-      blockedIPs?: string[];
-      allowedIPs?: string[];
-    };
-    geoBlocking?: {
-      enabled: boolean;
-      blockedCountries?: string[];
-    };
-    sqlInjectionProtection?: boolean;
-    xssProtection?: boolean;
-  };
 }
 
 /**

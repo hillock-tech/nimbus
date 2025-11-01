@@ -23,14 +23,9 @@ const userStore = nimbus.NoSQL({
   encryption: true,
 });
 
-// WAF-protected API
+// Simple API
 const api = nimbus.API({
-  name: 'api',
-  waf: {
-    enabled: true,
-    rateLimiting: { enabled: true, limit: 10000 },
-    sqlInjectionProtection: true,
-  },
+  name: 'api'
 });
 
 api.route('GET', '/users/{id}', async (event) => {
@@ -47,7 +42,7 @@ export default nimbus;
 ### **Production-First Design**
 Unlike other frameworks, Nimbus is built with production requirements from day one:
 
-- **🔒 Security by default** - WAF protection, encryption, least-privilege IAM
+- **🔒 Security by default** - Encryption, least-privilege IAM
 - **🛡️ Reliability patterns** - Dead letter queues, circuit breakers, retry logic
 - **📊 Complete observability** - X-Ray tracing, structured logging, health checks
 - **🔧 Operational excellence** - State management, resource cleanup, multi-stage deployments
@@ -95,19 +90,11 @@ npx nimbus deploy
 
 All resources are automatically integrated with proper IAM permissions and environment variables.
 
-### 🌐 API Gateway with WAF Protection
+### 🌐 API Gateway
 
 ```typescript
 const api = nimbus.API({
-  name: 'protected-api',
-  waf: {
-    enabled: true,
-    rateLimiting: { enabled: true, limit: 10000 },
-    sqlInjectionProtection: true,
-    xssProtection: true,
-    ipBlocking: { enabled: true, blockedIPs: ['192.168.1.100'] },
-    geoBlocking: { enabled: true, blockedCountries: ['CN'] },
-  },
+  name: 'my-api'
 });
 ```
 
@@ -280,7 +267,7 @@ api.route('GET', '/config', async () => {
 
 ### 🛡️ Security
 
-- **WAF Protection** - Automatic API security with rate limiting, SQL injection, and XSS protection
+- **API Security** - HTTPS enforcement and proper CORS handling
 - **Encryption at Rest** - All data stores encrypted with KMS
 - **Secrets Management** - AWS Secrets Manager integration for sensitive data
 - **Least Privilege IAM** - Automatic minimal permission policies
@@ -325,11 +312,7 @@ const config = {
 }[stage];
 
 const api = nimbus.API({
-  name: 'api',
-  waf: {
-    enabled: stage !== 'dev',
-    rateLimiting: { enabled: true, limit: config.rateLimiting },
-  },
+  name: 'api'
 });
 
 export default nimbus;
@@ -373,15 +356,9 @@ const tasksStore = nimbus.NoSQL({
   encryption: true,
 });
 
-// WAF-protected API with init pattern
+// API with init pattern
 const api = nimbus.API({
   name: 'tasks-api',
-  waf: {
-    enabled: true,
-    rateLimiting: { enabled: true, limit: 2000 },
-    sqlInjectionProtection: true,
-    xssProtection: true,
-  },
   init: () => {
     // Initialize DynamoDB client once per container
     const { DynamoDBClient } = require('@aws-sdk/client-dynamodb');
@@ -458,7 +435,7 @@ npx nimbus init
 | Feature | Nimbus | CDK | Serverless | SAM |
 |---------|--------|-----|------------|-----|
 | **Production Ready** | 85% out of box | Manual setup | Plugin dependent | Basic |
-| **Security** | WAF + Encryption + Secrets | Manual | Plugins | Basic |
+| **Security** | Encryption + Secrets | Manual | Plugins | Basic |
 | **Reliability** | DLQ + Circuit Breakers | Manual | Limited | Basic |
 | **Developer Experience** | Type-safe + Auto-wired | Complex | YAML config | YAML config |
 | **State Management** | Built-in S3 | CloudFormation | CloudFormation | CloudFormation |

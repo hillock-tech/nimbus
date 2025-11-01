@@ -85,7 +85,6 @@ nimbus-js/
 │   ├── parameter-store.ts # Parameter Store
 │   ├── role.ts            # IAM role management
 │   ├── state.ts           # State management
-│   ├── waf.ts             # WAF protection
 │   ├── runtime.ts         # Runtime helpers
 │   ├── utils.ts           # Utility functions
 │   ├── types-v2.ts        # TypeScript definitions (v2)

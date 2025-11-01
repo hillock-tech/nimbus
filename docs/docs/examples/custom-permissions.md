@@ -415,7 +415,6 @@ npm run destroy
 
 - [Basic API](./basic-api.md) - Simple API without custom permissions
 - [Auth API](./auth-api.md) - Authentication-based permissions
-- [WAF Protection](./waf-protection.md) - Network-level security
 
 ## Learn More
 

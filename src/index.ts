@@ -10,7 +10,6 @@ import { Timer } from './timer';
 import { Secret } from './secrets';
 import { Parameter } from './parameter-store';
 import { StateManager } from './state';
-import { WAF } from './waf';
 import runtime from './runtime';
 
 import {
@@ -29,7 +28,6 @@ import {
   HttpMethod,
   LambdaHandler,
 } from './types-v2';
-import { WAFOptions } from './waf';
 
 export class Nimbus {
   private region: string;
@@ -714,7 +712,6 @@ export {
   Timer,
   Secret,
   Parameter,
-  WAF,
   runtime,
   HttpMethod,
   LambdaHandler,
@@ -726,7 +723,6 @@ export {
   StorageOptions,
   QueueOptions,
   TimerOptions,
-  WAFOptions,
   NimbusOptions,
   DeploymentResult,
   createFunction,
